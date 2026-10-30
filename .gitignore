@@ -1,0 +1,8 @@
+/out/
+/ccache/
+/downloads/
+/artifacts/
+*.img
+*.img.lz4
+*.tar
+*.tar.md5
