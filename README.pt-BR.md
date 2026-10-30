@@ -78,10 +78,28 @@ Eles **não** comprovam compatibilidade com AOSP 15, certificação
 completa de segurança ou funcionamento integral do hardware
 em uma futura build AOSP 15.
 
+## Investigação da arquitetura do kernel
+
+O ambiente de referência Android 14 apresenta uma configuração
+de kernel ARM64 com compatibilidade AArch32 habilitada
+(`CONFIG_ARM64=y`, `CONFIG_64BIT=y`, `CONFIG_COMPAT=y`).
+
+O Android instalado continua usando userspace de 32 bits
+(`zygote32`). Os binários do vendor analisados incluem HALs
+ARM32 e uma biblioteca AArch64 de 64 bits. Isso não comprova
+a existência de uma pilha completa de HALs ARM64.
+
+Uma userspace AOSP 15 ARM64 com compatibilidade para ARM32
+está em investigação. A arquitetura final ainda não foi escolhida.
+
+Consulte [`docs/ARCHITECTURE_AUDIT.md`](docs/ARCHITECTURE_AUDIT.md)
+para ver as evidências e as pendências técnicas.
+
 ## Conteúdo do repositório
 
 - `device/samsung/a3core/BoardConfig.mk` — configuração inicial
   e experimental da placa; incompleta e não pronta para build.
+- `docs/ARCHITECTURE_AUDIT.md` — auditoria da arquitetura do kernel e ABI do userspace (inglês).
 - `docs/BASELINE.md` — referência do dispositivo e firmware.
 - `docs/KERNEL_AUDIT.md` — auditoria do kernel.
 - `docs/PARTITION_LAYOUT.md` — layout das partições (inglês).
