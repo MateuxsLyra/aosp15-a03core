@@ -1,8 +1,37 @@
+# Android build outputs and caches
 /out/
 /ccache/
-/downloads/
+/.cache/
 /artifacts/
+/downloads/
+
+# Local research and extracted firmware
+/analysis/
+/firmware/
+/proprietary/
+/vendor_blobs/
+/local/
+
+# Device images and firmware packages
 *.img
 *.img.lz4
 *.tar
 *.tar.md5
+*.zip
+*.pit
+
+# Private keys and local credentials
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+*.keystore
+.env
+.env.*
+
+# Logs and editor/OS files
+*.log
+*.swp
+*~
+.DS_Store
